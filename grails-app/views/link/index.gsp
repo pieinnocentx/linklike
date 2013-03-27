@@ -13,7 +13,7 @@
     <li>No links</li>
   <% } else { %>
     <% for(link in links) { %>
-      <li><%= link.title %></li>
+      <li><%= link.title %> <button>vote</button></li>
     <% } %> 
   <% } %>
 </ul>
