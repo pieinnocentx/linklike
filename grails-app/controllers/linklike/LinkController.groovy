@@ -16,7 +16,7 @@ class LinkController {
     def voteUp(String title) {
     	def links = Link.findAll()
     	for(link in links)
-    		if(link == title)
+    		if(link.title == title)
     			link.voteCount += 1
     }
 

@@ -18,7 +18,7 @@ class LinkControllerTests {
     	def link1 = new Link(title:'a',url: 'b')
     	link1.save()
 
-       	controller.voteUp()
+       	controller.voteUp(link1.title)
 
        	assertEquals 1,link1.voteCount
     }
