@@ -8,12 +8,22 @@
 
 <hr>
 
+
 <ul>
   <% if(links.size() == 0) { %>
     <li>No links</li>
   <% } else { %>
     <% for(link in links) { %>
-      <li><%= link.title %> <button>vote</button></li>
+      <li>
+        <g:form name="linkCreateForm" url="[action:'voteUp']">
+        <a href= <%= link.url %>><%= link.title %></a>
+        <%= link.voteCount %>
+        
+        <input type="hidden" name="title" value= <%= link.title %> >
+        <input type="submit" value="vote up!"/>
+        </g:form>
+      </li>
     <% } %> 
   <% } %>
 </ul>
+
