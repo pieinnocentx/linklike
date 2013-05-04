@@ -2,7 +2,7 @@
 
 <g:form name="linkCreateForm" url="[action:'create']">
   Title: <g:textField name="title"/><br/>
-  URL: <g:textField name="url"/><br/>
+  URL: <g:textField name="url"/> ex. http://www.google.com<br/>
   <input type="submit" value="Add new link"/>
 </g:form>
 

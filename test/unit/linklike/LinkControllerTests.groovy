@@ -35,6 +35,8 @@ class LinkControllerTests {
        	controller.voteUp()
 
        	assertEquals 1, Link.get(2).voteCount
+        assertEquals 0, Link.get(1).voteCount
+        assertEquals 0, Link.get(3).voteCount
     }    
 
 }
