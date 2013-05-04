@@ -14,12 +14,27 @@ import grails.test.mixin.domain.DomainClassUnitTestMixin
 @Mock([Link])
 class LinkControllerTests {
 
-    void testVote() {
+    void testVoteWithOneLinkInList() {
     	def link1 = new Link(title:'a',url: 'b')
     	link1.save()
 
-       	controller.voteUp(link1.title)
+    	params.title = 'a'
+       	controller.voteUp()
 
        	assertEquals 1,link1.voteCount
     }
+
+	void testVoteWithMoreThanOneLinkInList() {
+    	mockDomain(Link,
+    		[ [title:'link1',url:'www.a.com'],
+    		[title:'link2',url:'www.b.com'],
+    		[title:'link3',url:'www.c.com'] ])
+    	def model = controller.index()
+
+    	params.title = 'link2'
+       	controller.voteUp()
+
+       	assertEquals 1, Link.get(2).voteCount
+    }    
+
 }
